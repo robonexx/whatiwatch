@@ -51,9 +51,9 @@ router.post('/', (req, res) => {
 
   //check validation
   // Title, Year, Released, Genre, imdbID
-  const title = movie.title;
+  /* const title = movie.title;
   const released = movie.release_date;
-  const overview = movie.overview;
+  const overview = movie.overview; */
   const id = movie.id;
 
   let randomIdNum = Math.floor(Math.random() * 10000 + 1);
@@ -75,35 +75,35 @@ router.post('/', (req, res) => {
   }
 
   // check if title exists
-  if (title === '') {
+  /* if (title === '') {
     return res.status(400).json({
       code: 'InvalidJsonInput',
       message: 'Title is missing a value, please include a movie name',
     });
   }
-
-  if (!title) {
+ */
+  /* if (!title) {
     return res.status(400).json({
       code: 'InvalidJsonInput',
       message: 'Title is missing, please include a movie title',
     });
-  }
+  } */
 
   // validate genre is included
-  if (!overview) {
+  /* if (!overview) {
     return res.status(400).json({
       code: 'InvalidJsonInput',
       message: 'Overview is missing, please include an overview',
     });
-  }
+  } */
 
   // validate released is included
-  if (!released) {
+  /* if (!released) {
     return res.status(400).json({
       code: 'InvalidJsonInput',
       message: 'Released is missing, please include a Released',
     });
-  }
+  } */
 
   // adding new movie req.body is movie object
   const newMovie = {
@@ -121,42 +121,42 @@ router.put('/:id', (req, res) => {
   const movie = req.body;
 
   // Title, Year, Released, Genre, imdbID
-  const title = movie.title;
+  /* const title = movie.title;
   const released = movie.release_date;
-  const overview = movie.overview;
+  const overview = movie.overview; */
 
   // could have seprated and made these their own validation functions
 
   // check if title exists
-  if (title === '') {
+  /* if (title === '') {
     return res.status(400).json({
       code: 'InvalidJsonInput',
       message: 'Title is missing a value, please include a movie name',
     });
-  }
+  } */
 
-  if (title === null || title === undefined) {
+  /* if (title === null || title === undefined) {
     return res.status(400).json({
       code: 'InvalidJsonInput',
       message: 'Title is missing, please include a movie title',
     });
-  }
+  } */
 
   // check released
-  if (!released) {
+  /* if (!released) {
     return res.status(400).json({
       code: 'InvalidJsonInput',
       message: 'Released is missing, please include a released',
     });
-  }
+  } */
 
   // check genre
-  if (overview === '' || overview === null || overview === undefined) {
+  /* if (overview === '' || overview === null || overview === undefined) {
     return res.status(400).json({
       code: 'InvalidJsonInput',
       message: 'Overview is missing, please include a movie overview',
     });
-  }
+  } */
 
   const index = movies.findIndex((movie) => movie.id === id);
 
