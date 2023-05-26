@@ -53,7 +53,7 @@ router.post('/', (req, res) => {
   // Title, Year, Released, Genre, imdbID
   const title = movie.title;
   const released = movie.release_date;
-  const genre = movie.genre;
+  const overview = movie.overview;
   const id = movie.id;
 
   let randomIdNum = Math.floor(Math.random() * 10000 + 1);
@@ -90,10 +90,10 @@ router.post('/', (req, res) => {
   }
 
   // validate genre is included
-  if (!genre) {
+  if (!overview) {
     return res.status(400).json({
       code: 'InvalidJsonInput',
-      message: 'Genre is missing, please include a Genre',
+      message: 'Overview is missing, please include an overview',
     });
   }
 
@@ -123,7 +123,7 @@ router.put('/:id', (req, res) => {
   // Title, Year, Released, Genre, imdbID
   const title = movie.title;
   const released = movie.release_date;
-  const genre = movie.genre;
+  const overview = movie.overview;
 
   // could have seprated and made these their own validation functions
 
@@ -151,11 +151,10 @@ router.put('/:id', (req, res) => {
   }
 
   // check genre
-  if (genre === '' || genre === null || genre === undefined) {
+  if (overview === '' || overview === null || overview === undefined) {
     return res.status(400).json({
       code: 'InvalidJsonInput',
-      message:
-        'Genre is missing a value, please include a movie genre or genres',
+      message: 'Overview is missing, please include a movie overview',
     });
   }
 
