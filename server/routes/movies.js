@@ -47,7 +47,7 @@ router.delete('/:id', (req, res) => {
 
 // POST // adding a new movie - Title, Year, Released, Genre must be included in the req.body
 router.post('/', (req, res) => {
-  const movie = req.body;
+  const movie = req.body.movie;
 
   //check validation
   // Title, Year, Released, Genre, imdbID
@@ -118,7 +118,7 @@ router.post('/', (req, res) => {
 // PUT // updating a movie
 router.put('/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  const movie = req.body;
+  const movie = req.body.movie;
 
   // Title, Year, Released, Genre, imdbID
   /* const title = movie.title;
